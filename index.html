@@ -571,6 +571,109 @@
       .chat-panel { max-height: 540px; }
     }
 
+    /* ---------- Output artifacts ---------- */
+    .artifacts-card {
+      display: none; margin-top: 16px; padding: 0; overflow: hidden;
+      border: 1px solid var(--cs-border); border-radius: 8px; background: #fff;
+    }
+    .artifacts-card.active { display: block; }
+    .artifacts-head {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; border-bottom: 1px solid var(--cs-border);
+      background: linear-gradient(90deg, #f3f0fa, #e7f3fc);
+    }
+    .artifacts-head h3 { margin: 0; font-size: 14px; color: var(--cs-purple); }
+    .artifacts-head .sub { font-size: 11px; color: var(--cs-text-muted); }
+    .artifacts-head .artifacts-badge {
+      margin-left: auto; font-size: 10px; padding: 3px 9px; border-radius: 10px;
+      background: var(--cs-teal-soft); color: var(--cs-teal); font-weight: 600;
+    }
+    .art-tabs {
+      display: flex; gap: 0; border-bottom: 1px solid var(--cs-border); background: #fafbfc;
+      padding: 0 12px;
+    }
+    .art-tab {
+      padding: 10px 14px; font-size: 12px; color: var(--cs-text-muted);
+      border-bottom: 2px solid transparent; cursor: pointer; user-select: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .art-tab .art-glyph { font-size: 13px; }
+    .art-tab:hover { color: var(--cs-text); }
+    .art-tab.active { color: var(--cs-purple); border-bottom-color: var(--cs-purple); background: #fff; font-weight: 600; }
+    .art-pane { display: none; padding: 16px 18px; }
+    .art-pane.active { display: block; }
+
+    /* KPIs tab */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    }
+    @media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    .kpi-tile {
+      border: 1px solid var(--cs-border); border-radius: 8px; padding: 12px 14px; background: #fff;
+      display: flex; flex-direction: column; gap: 2px; position: relative;
+    }
+    .kpi-tile .lbl { font-size: 11px; color: var(--cs-text-muted); text-transform: uppercase; letter-spacing: .4px; }
+    .kpi-tile .val { font-size: 20px; font-weight: 600; color: var(--cs-text); margin-top: 2px; }
+    .kpi-tile .sub { font-size: 11px; color: var(--cs-text-soft); }
+    .kpi-tile .trend {
+      position: absolute; top: 8px; right: 10px; font-size: 10px;
+      padding: 2px 6px; border-radius: 8px; font-weight: 600;
+    }
+    .kpi-tile .trend.up { background: #dcfce7; color: #056b3a; }
+    .kpi-tile .trend.down { background: #fde7ea; color: #a4262c; }
+    .kpi-callout {
+      margin-top: 12px; padding: 10px 14px; border: 1px dashed #d3c4ea;
+      background: #faf7ff; border-radius: 6px; font-size: 12px; color: var(--cs-text-muted);
+    }
+    .kpi-callout b { color: var(--cs-purple); }
+
+    /* Metrics Workbook tab — embeds the Excel-style view */
+    .mw-toolbar {
+      display: flex; align-items: center; gap: 8px; padding: 6px 10px;
+      border: 1px solid var(--cs-border); border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, #f8f8f8, #f1f1f1);
+    }
+    .mw-tag {
+      font-size: 11px; padding: 3px 8px; border-radius: 4px;
+      background: #117865; color: #fff; font-weight: 600;
+    }
+    .mw-body {
+      border: 1px solid var(--cs-border); border-top: none;
+      border-radius: 0 0 6px 6px;
+    }
+    .mw-viz-row { padding: 10px 12px; border-bottom: 1px solid var(--cs-border); }
+    .mw-table-wrap { max-height: 360px; overflow: auto; }
+    .mw-foot { padding: 8px 12px; font-size: 11px; color: var(--cs-text-muted); background: #fafbfc; }
+
+    /* Narrative tab */
+    .nar-card {
+      border-left: 3px solid var(--cs-purple); padding: 4px 14px; background: #faf7ff;
+      border-radius: 0 6px 6px 0; margin-bottom: 12px;
+    }
+    .nar-card p { font-size: 13px; line-height: 1.55; color: var(--cs-text); margin: 10px 0; }
+    .nar-foot {
+      font-size: 11px; color: var(--cs-text-muted); padding: 8px 12px;
+      background: #f4f7fa; border-radius: 6px;
+    }
+    .nar-foot b { color: var(--cs-purple); }
+
+    /* Additional questions tab */
+    .aq-intro { font-size: 12px; color: var(--cs-text-muted); margin-bottom: 10px; }
+    .aq-list { display: flex; flex-direction: column; gap: 8px; }
+    .aq-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 12px; border: 1px solid var(--cs-border); border-radius: 6px;
+      background: #fff; cursor: pointer; transition: border-color .15s, background .15s;
+    }
+    .aq-item:hover { border-color: var(--cs-accent); background: #f4f8fd; }
+    .aq-glyph {
+      flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--cs-teal-soft); color: var(--cs-teal);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600;
+    }
+    .aq-text { font-size: 12.5px; line-height: 1.45; color: var(--cs-text); }
+    .aq-go { margin-left: auto; font-size: 11px; color: var(--cs-accent); white-space: nowrap; }
+
     /* ---------- Flow tree (Copilot Studio canvas style) ---------- */
     .flow-head {
       display: flex; align-items: flex-start; gap: 14px; padding: 14px 0 18px;
@@ -1265,10 +1368,6 @@
         </div>
       `).join('');
 
-      const sheetTabs = DATA.demos.map(d => `
-        <div class="sheet-tab ${d.id === demo.id ? 'active' : ''}" data-goto="${esc(d.id)}">${esc(d.sheet)}</div>
-      `).join('');
-
       const tableHTML = renderTable(cols, rows.slice(0, 60));
 
       const kpiHTML = `
@@ -1277,6 +1376,122 @@
           <div class="kpi"><div class="lbl">Agentic min / case</div><div class="val">${demo.auto_minutes}</div><div class="sub">After agents</div></div>
           <div class="kpi"><div class="lbl">Cases / year</div><div class="val">${fmtN(demo.cases_per_year)}</div><div class="sub">Demand pool</div></div>
           <div class="kpi"><div class="lbl">Annual $ saving</div><div class="val">${fmt$(demo.annual_savings)}</div><div class="sub">At run rate</div></div>
+        </div>
+      `;
+
+      // Richer KPI grid for the Output artifacts > KPIs tab
+      const casesAuto = Math.round(demo.cases_per_year * demo.automation_rate);
+      const casesHuman = demo.cases_per_year - casesAuto;
+      const manualMin = (demo.manual_hours || 0) * 60;
+      const cycleReductionPct = manualMin > 0 ? Math.round(100 * (1 - (demo.auto_minutes / manualMin))) : 0;
+      const fteFreed = Math.round((demo.cases_per_year * (demo.manual_hours - demo.auto_minutes/60)) / 1800);
+      const artifactsKpisHTML = `
+        <div class="kpi-grid">
+          <div class="kpi-tile">
+            <span class="trend up">▲ ${demo.automation_rate ? Math.round(demo.automation_rate*100) : 0}%</span>
+            <div class="lbl">Cases auto-resolved</div><div class="val">${fmtN(casesAuto)}</div>
+            <div class="sub">Straight-through, evidence captured</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="lbl">Routed to human</div><div class="val">${fmtN(casesHuman)}</div>
+            <div class="sub">Highest-judgement work only</div>
+          </div>
+          <div class="kpi-tile">
+            <span class="trend down">▼ ${cycleReductionPct}%</span>
+            <div class="lbl">Cycle time / case</div><div class="val">${demo.manual_hours}h → ${demo.auto_minutes}m</div>
+            <div class="sub">Manual → agentic</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="lbl">Annual $ saving</div><div class="val">${fmt$(demo.annual_savings)}</div>
+            <div class="sub">At run-rate</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="lbl">Risk reduction</div><div class="val">${demo.risk_reduction ? Math.round(demo.risk_reduction*100) : 0}%</div>
+            <div class="sub">Loss-event probability</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="lbl">FTE-equivalents freed</div><div class="val">${fmtN(fteFreed)}</div>
+            <div class="sub">≈ 1,800 hrs / FTE / yr</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="lbl">Cases / year</div><div class="val">${fmtN(demo.cases_per_year)}</div>
+            <div class="sub">Demand pool</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="lbl">Value per case</div><div class="val">${fmt$(demo.value_per_case)}</div>
+            <div class="sub">Avg avoided cost / case</div>
+          </div>
+        </div>
+        <div class="kpi-callout">
+          <b>How to read this:</b> ${esc(demo.title)} processed ${fmtN(demo.cases_per_year)} cases this year. With the agentic flow,
+          <b>${fmtN(casesAuto)}</b> closed straight-through with cited evidence and <b>${fmtN(casesHuman)}</b> were routed to a human for the
+          highest-judgement decisions — freeing roughly <b>${fmtN(fteFreed)} FTE-equivalents</b> and avoiding <b>${fmt$(demo.annual_savings)}</b> per year.
+        </div>
+      `;
+
+      // Metrics Workbook tab content — keeps the embedded Excel viz IDs alive
+      const sheetTabsHTML = DATA.demos.map(d => `
+        <div class="sheet-tab ${d.id === demo.id ? 'active' : ''}" data-goto="${esc(d.id)}">${esc(d.sheet)}</div>
+      `).join('');
+      const metricsWorkbookHTML = `
+        <div class="mw-toolbar">
+          <span class="mw-tag">${esc(demo.sheet)}</span>
+          <span style="font-size:11px;color:var(--cs-text-muted)">${rows.length} rows · synthetic data</span>
+          <a class="download-btn" id="download-btn" href="${esc(DATA.workbook_filename)}" download style="margin-left:auto;">
+            <span class="lk"></span> Connected to Workbook · download .xlsx
+          </a>
+        </div>
+        <div class="mw-body">
+          <div class="sheet-tabs">${sheetTabsHTML}</div>
+          <div class="mw-viz-row">
+            <div class="viz-status" id="viz-status"></div>
+            <div id="viz-extra"></div>
+            ${kpiHTML}
+          </div>
+          <div class="mw-table-wrap" id="table-wrap">${tableHTML}</div>
+          <div class="mw-foot">Showing ${Math.min(rows.length, 60)} of ${rows.length} rows · open the workbook to see all data and run Copilot in Excel prompts.</div>
+        </div>
+      `;
+
+      const narrativeHTML = `
+        <div class="nar-card">
+          ${(demo.narrative || []).map(p => `<p>${esc(p)}</p>`).join('')}
+        </div>
+        <div class="nar-foot">
+          <b>Methodology:</b> Synthetic data only · cited evidence per case · all agent decisions persisted to the case file for audit.
+        </div>
+      `;
+
+      const questionsHTML = `
+        <div class="aq-intro">Suggested deeper-investigation prompts based on the agents' output. Click one to drop it into the Copilot Risk Assistant chat on the left.</div>
+        <div class="aq-list">
+          ${(demo.further_questions || []).map((q, i) => `
+            <div class="aq-item" data-aq-idx="${i}">
+              <div class="aq-glyph">${i+1}</div>
+              <div class="aq-text">${esc(q)}</div>
+              <div class="aq-go">Ask Copilot →</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      const artifactsHTML = `
+        <div class="artifacts-card panel" id="artifacts-card">
+          <div class="artifacts-head">
+            <h3>📦 Output artifacts</h3>
+            <span class="sub">Generated by the agent flow · ${esc(demo.title)}</span>
+            <span class="artifacts-badge" id="artifacts-badge">Ready</span>
+          </div>
+          <div class="art-tabs" role="tablist">
+            <div class="art-tab active" data-art-tab="kpis"><span class="art-glyph">📊</span> KPIs</div>
+            <div class="art-tab" data-art-tab="workbook"><span class="art-glyph">📗</span> Metrics Workbook</div>
+            <div class="art-tab" data-art-tab="narrative"><span class="art-glyph">📝</span> Narrative</div>
+            <div class="art-tab" data-art-tab="questions"><span class="art-glyph">💡</span> Additional questions</div>
+          </div>
+          <div class="art-pane active" data-art-pane="kpis">${artifactsKpisHTML}</div>
+          <div class="art-pane" data-art-pane="workbook">${metricsWorkbookHTML}</div>
+          <div class="art-pane" data-art-pane="narrative">${narrativeHTML}</div>
+          <div class="art-pane" data-art-pane="questions">${questionsHTML}</div>
         </div>
       `;
 
@@ -1384,27 +1599,10 @@
             </div>
 
             ${execHTML}
-
-            <div class="panel excel-card">
-              <div class="excel-toolbar">
-                <span class="excel-tag">${esc(demo.sheet)}</span>
-                <span style="font-size:11px;color:var(--cs-text-muted)">${rows.length} rows · synthetic data</span>
-                <a class="download-btn" id="download-btn" href="${esc(DATA.workbook_filename)}" download>
-                  <span class="lk"></span> Connected to Workbook · download .xlsx
-                </a>
-              </div>
-              <div class="sheet-tabs">${sheetTabs}</div>
-
-              <div class="viz-area">
-                <div class="viz-status" id="viz-status"></div>
-                <div id="viz-extra"></div>
-                ${kpiHTML}
-                <div class="table-wrap" id="table-wrap">${tableHTML}</div>
-                <div class="table-foot">Showing ${Math.min(rows.length, 60)} of ${rows.length} rows · open the workbook to see all data and run Copilot in Excel prompts.</div>
-              </div>
-            </div>
           </div>
         </div>
+
+        ${artifactsHTML}
       `;
     }
 
@@ -1443,6 +1641,23 @@
         c.onclick = () => {
           const p = demo.chat_prompts[Number(c.dataset.promptIdx)];
           if (p) sendChat(p.text, p);
+        };
+      });
+
+      // Output-artifact tabs (KPIs / Workbook / Narrative / Questions)
+      document.querySelectorAll('.art-tab').forEach(t => {
+        t.onclick = () => switchArtifactTab(t.dataset.artTab);
+      });
+
+      // Additional-questions: clicking a question fires it into the chat
+      document.querySelectorAll('.aq-item').forEach(it => {
+        it.onclick = () => {
+          const idx = Number(it.dataset.aqIdx);
+          const q = (demo.further_questions || [])[idx];
+          if (!q) return;
+          const matched = matchPrompt(demo, q) || (demo.chat_prompts && demo.chat_prompts[0]);
+          sendChat(q, matched);
+          switchArtifactTab('workbook');
         };
       });
 
@@ -1517,11 +1732,31 @@
         hideTyping();
         if (matched) {
           appendMsg('bot', esc(matched.reply));
+          revealArtifacts('workbook');
           applyViz(matched.viz, matched);
         } else {
           appendMsg('bot', `I can help with that. For this agent, try asking me about <b>which items to triage first</b>, <b>grouping by a dimension</b>, or the <b>ROI of automating a step</b>. I can also filter the workbook on the right.`);
         }
       }, 650);
+    }
+
+    // ---------------------------------------------------------------------
+    // Output artifacts (KPIs / Metrics Workbook / Narrative / Questions)
+    // ---------------------------------------------------------------------
+    function revealArtifacts(focusTab) {
+      const card = document.getElementById('artifacts-card');
+      if (!card) return;
+      card.classList.add('active');
+      const badge = document.getElementById('artifacts-badge');
+      if (badge) badge.textContent = 'Generated';
+      if (focusTab) switchArtifactTab(focusTab);
+    }
+
+    function switchArtifactTab(tabKey) {
+      const tabs = document.querySelectorAll('.art-tab');
+      const panes = document.querySelectorAll('.art-pane');
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.artTab === tabKey));
+      panes.forEach(p => p.classList.toggle('active', p.dataset.artPane === tabKey));
     }
 
     // ---------------------------------------------------------------------
@@ -1816,6 +2051,13 @@
       setVizStatus(null);
       clearExtra();
       document.querySelectorAll('#table-wrap tbody tr').forEach(tr => { tr.classList.remove('highlight','dim'); });
+      const card = document.getElementById('artifacts-card');
+      if (card) {
+        card.classList.remove('active');
+        const badge = document.getElementById('artifacts-badge');
+        if (badge) badge.textContent = 'Ready';
+        switchArtifactTab('kpis');
+      }
     }
     function runAgents(demo) {
       // Hide the per-agent description card while agents are running (per spec).
@@ -1886,6 +2128,7 @@
                 pill.textContent = 'Completed · ROI captured';
                 pill.className = 'exec-pill done';
                 setExtra(roiPanel());
+                revealArtifacts('kpis');
               }
             }, STEP_TAIL_DELAY);
             return;
@@ -2321,6 +2564,18 @@
             5
           ]
         }
+      ],
+      "narrative": [
+        "The loan-underwriting agent flow processed 1,920 inflight commercial credit files this quarter across direct-RM, broker and self-serve digital channels. The Intake & Spreading Agent normalised financials from PDF, Excel and bank-statement uploads via Document Intelligence and matched them to the bank's chart of accounts.",
+        "The Credit Analysis Agent ran rating, leverage, coverage and probability-of-default models against industry peers and macro scenarios. The Policy Compliance Agent then re-checked covenants, collateral haircuts, exposure limits and concentration buckets against the credit policy library \u2014 flagging 184 files with material policy variance for committee review. 612 files were classified as routine renewals well within risk-appetite and pre-approved with cited evidence.",
+        "The Decision & Memo Agent drafted the credit memo, term sheet, covenant package and adverse-action notice where required, with citation footers back to every supporting number. Net effect: time-to-decision fell from 9.2 days to 1.6 days, committee throughput rose 38%, and credit quality holds (KPIs unchanged or improved across rating migration and default rate)."
+      ],
+      "further_questions": [
+        "Which industries account for the highest policy-variance rate, and is the current credit appetite right?",
+        "What is the correlation between time-to-decision and post-close default rate by segment?",
+        "Which RMs originate the largest share of files needing material rework before committee?",
+        "If we lifted the auto-approve threshold to $5M for sub-investment-grade renewals, what is the loss-expectation impact?",
+        "Where is the next $10M of underwriting cost-to-serve hiding \u2014 spreading, analysis or memo drafting?"
       ],
       "rows": [
         [
@@ -4483,6 +4738,18 @@
           ]
         }
       ],
+      "narrative": [
+        "The AML disposition agent flow worked the open Actimize alert queue plus prior dispositions and SAR linkages, ingesting 14,800 alerts and disposing of 11,840 (80%) without human touch. The Screening Agent and Entity Resolution Agent confirmed name and party identities against OFAC, EU, UN and World-Check lists and surfaced the matched evidence per case.",
+        "The Disposition Reasoning Agent then combined screening evidence, KYC posture from the customer master, 24-month transaction history and peer-group baselines to score each alert. 8,624 alerts were dispositioned as clear false-positives with cited evidence, 1,820 as common-name typology requiring re-screening, and 1,396 were promoted for SAR/STR drafting. The SAR Drafting Agent composed FinCEN-aligned narratives grounded in the bank's procedures and pre-filled all required fields.",
+        "The Quality & Audit Agent then ran the four-eyes review, ensured every disposition carries a citation pack and persisted the case in Dataverse for QA sampling. Net effect: average disposition time fell from 47 minutes to 4.1 minutes, freeing approximately 92 FTE-equivalents to focus on the 20% of alerts that genuinely deserve human attention."
+      ],
+      "further_questions": [
+        "Which screening scenarios produce the highest false-positive rate, and what re-tuning would close them?",
+        "Are there any common-name typologies we should add to the whitelist, supported by 90 days of evidence?",
+        "What percentage of SARs reference a customer whose CDD was over 18 months old at disposition?",
+        "Which countries account for the largest rise in true-positive alerts this quarter?",
+        "What is the expected change in alert volume if we move from rules-only to ML-assisted screening for retail wires?"
+      ],
       "rows": [
         [
           "AML-0001",
@@ -6639,6 +6906,18 @@
             5
           ]
         }
+      ],
+      "narrative": [
+        "The KYC/KYB refresh agent flow processed 38,400 due-or-overdue customer files this quarter across retail, SME and corporate segments. The Schedule & Outreach Agent prioritised by risk-tier and last-reviewed date, sent secure refresh requests via the customer's preferred channel, and tracked responses.",
+        "The Document Ingestion Agent parsed uploaded passports, articles of incorporation, beneficial-owner declarations and tax filings via Document Intelligence. The Validation & Adverse-Media Agent then cross-checked each file against KYC policy thresholds, ran sanctions and PEP screening, pulled adverse-media via World-Check and LexisNexis Bridger, and flagged 1,180 files with material risk change requiring EDD.",
+        "The Decision & Update Agent posted clean refreshes to the customer master, drafted EDD packages where required and routed them for compliance officer sign-off. Net effect: KYC backlog fell 71%, time-per-refresh dropped from 3.4 hours to 12 minutes, and the bank moved from reactive remediation to a continuous-KYC operating model with measurable risk-tier accuracy improvement."
+      ],
+      "further_questions": [
+        "Which customer segments have the largest rate of risk-tier change at refresh, and is the original tiering model still right?",
+        "What is the average days-overdue by segment, and where is regulatory exposure concentrated?",
+        "Which adverse-media signals most often lead to a tier-upgrade \u2014 and can we surface them sooner?",
+        "Which channels have the lowest customer-response rate to refresh outreach, and what would lift them?",
+        "What is the cost-per-refresh today vs after full agent rollout, by customer segment?"
       ],
       "rows": [
         [
@@ -8797,6 +9076,18 @@
             5
           ]
         }
+      ],
+      "narrative": [
+        "The liquidity-stress agent flow ran the morning forecast plus six stress scenarios at 06:00 local across 14 entities and 19 currencies. The Forecast Agent fused Bloomberg rates, Fed H.4.1, RTGS queue state, and the bank's own Calypso ladder into a single position picture.",
+        "The Stress Simulation Agent ran one-day rate sell-off, large corporate outflow, peer-bank stress and deposit run-off scenarios in parallel, producing 84 paired LCR / NSFR projections. The Limit & Buffer Agent then identified 5 entity / currency combinations breaching LCR \u2265 100% buffers, with the USD LCR projected to drop 6 percentage points by 14:30 driven by a $1.2B rate sell-off and a $470M corporate outflow.",
+        "The Action Agent recommended four delayed-release decisions on non-time-critical high-value payments, three secured funding requests against pre-positioned collateral, and one shift of intraday repo from the late-window to the morning window. The Reporting Agent pushed the result pack into Treasury and ALCO via Power BI and Teams adaptive cards, with all underlying scenarios written to the lakehouse for back-testing. Net effect: intraday-funding incidents fell 76% and treasury reclaimed two analyst-days per week."
+      ],
+      "further_questions": [
+        "Under what plausible stress scenario does the bank's intraday buffer first break?",
+        "Which counterparties send the largest, latest payments on a typical day, and what would cap-tightening cost them?",
+        "What would the intraday funding cost be if all corporate clients submitted payments by 11:00 local?",
+        "Which currencies have the largest gap between forecast and actual EOD position?",
+        "How would the CFP triggers fire under a Fed-rate shock combined with a peer-bank stress?"
       ],
       "rows": [
         [
@@ -10957,6 +11248,18 @@
           ]
         }
       ],
+      "narrative": [
+        "The market-risk agent flow processed 18,400 limit-utilisation events per year across rates, FX, credit and equities desks. The Surveillance Agent ingested live mark-to-market feeds from the trading systems plus risk-engine results (VaR, ES, sensitivity, concentration) and surfaced 312 breaches and 1,840 watchlist alerts.",
+        "The Attribution Agent then decomposed each breach into market-move vs position-add vs methodology-change components, citing the exact trade and time of the breach. The Policy Lookup Agent cross-checked against the limits framework, escalation matrix and prior remediation history. 124 breaches matched legacy-issue patterns auto-closable under standing approvals; 188 required desk-head or risk-officer sign-off.",
+        "The Notification & Remediation Agent drafted the breach-notification email, the proposed risk-reducing trade or limit-temporary-increase, and routed for the right approver via Teams adaptive cards. Net effect: average breach time-to-acknowledge fell from 47 minutes to 6 minutes, repeat-breaches dropped 41% with attribution-driven coaching, and material breaches now reach the CRO inbox the same trading day."
+      ],
+      "further_questions": [
+        "Which desks have the highest breach-frequency adjusted for limit-utilisation, and what is the supervisory pattern?",
+        "Which limits have been breached repeatedly without remediation \u2014 and should they be re-sized?",
+        "What is the average time-from-breach-to-CRO-acknowledgement, and where do escalations stall?",
+        "Which traders have the highest ratio of policy-variant remediation to limit breaches, and is coaching needed?",
+        "What would the capital impact be of moving from VaR to ES limits for the rates desk?"
+      ],
       "rows": [
         [
           "MRB-0001",
@@ -13115,6 +13418,18 @@
             5
           ]
         }
+      ],
+      "narrative": [
+        "The RCSA agent flow processed 2,460 control assessments across 18 business units this quarter. The Evidence Gathering Agent pulled supporting artefacts from SharePoint, ServiceNow, the GRC tool and source systems, then matched each one to the relevant control and assertion.",
+        "The Operating-Effectiveness Agent then ran the testing scripts: sample selection, attribute testing, exception identification, and root-cause grouping. The Rating & Remediation Agent updated the operating rating (Effective / Partial / Ineffective), drafted the issue write-up with cited evidence, and proposed a remediation plan with owner and target date.",
+        "The Aggregation & Reporting Agent rolled assessments into the BU-level risk profile, produced the quarterly RCSA pack for the Operational Risk Committee and surfaced the top-5 thematic weaknesses with first-line ownership. Net effect: assessment cycle fell from 4 weeks to 6 days, evidence-completeness improved from 78% to 96%, and the OR committee now spends meeting time on remediation rather than aggregation."
+      ],
+      "further_questions": [
+        "Which controls are rated Partial or Ineffective for three quarters running, and what is the remediation status?",
+        "Where are evidence gaps clustered \u2014 which BUs have the lowest evidence-completeness?",
+        "Which first-line owners have the largest backlog of overdue remediation actions?",
+        "Which control failures correlate with operational losses in the last 12 months?",
+        "What is the cost-per-assessment today vs after full agent rollout, by BU?"
       ],
       "rows": [
         [
@@ -15276,6 +15591,18 @@
           ]
         }
       ],
+      "narrative": [
+        "The third-party-risk agent flow worked the 4,800-vendor inventory this quarter, prioritising 612 critical and high-risk vendors for assessment. The Profile Agent pulled the master vendor record, scope of services, data sharing posture and last assessment date from the TPRM system.",
+        "The Continuous Monitoring Agent fused SOC 2 reports, financial filings, adverse media, sanctions screening and dark-web intelligence into a current risk picture per vendor. The Assessment Agent generated the right questionnaire, sent it to the vendor and reviewed the response for policy gaps. 41 critical vendors raised SOC exceptions, financial deterioration or material adverse media requiring escalation.",
+        "The Risk & Remediation Agent drafted the issue, proposed compensating controls and routed to the business owner + procurement + InfoSec for response. The Renewal Agent flagged 188 contracts in the 90-day renewal window with risk-based recommendations. Net effect: critical-vendor assessment cycle fell from 12 weeks to 11 days, residual-risk visibility now updates continuously, and the bank surfaced two material vendor issues this quarter that prior periodic assessment would have missed."
+      ],
+      "further_questions": [
+        "Which critical vendors have SOC 2 exceptions and material adverse media in the same quarter?",
+        "Which vendors hold the most sensitive customer data and have not been assessed in the last 12 months?",
+        "Which contract renewals in the next 90 days have a tier-upgrade-recommended risk profile?",
+        "What is the concentration risk by vendor on the cloud-services and core-banking categories?",
+        "Which vendor categories drive the largest share of operational incidents this year?"
+      ],
       "rows": [
         [
           "VND-0001",
@@ -17436,6 +17763,18 @@
           ]
         }
       ],
+      "narrative": [
+        "The regulatory-response agent flow handled 184 supervisory requests this year from the Federal Reserve, OCC, FDIC, CFPB and state regulators. The Intake & Triage Agent parsed each request, classified the subject (capital, AML, conduct, model-risk, technology), and assigned the right SME owner.",
+        "The Evidence Assembly Agent then searched the bank's policy library, prior responses, source systems and audit reports for relevant material, surfacing 2,400 candidate citations the SME could approve or reject. The Drafting Agent composed the response grounded in approved language and prior precedent, with citation footers back to source documents.",
+        "The Review & Submission Agent routed the draft for legal, compliance and the SME-owner sign-off via Teams adaptive cards, tracked deadline-at-risk and submitted via the regulator's preferred channel. Net effect: average response cycle fell from 21 days to 6 days, late filings dropped to zero, and the bank's response quality score from regulators rose two grades."
+      ],
+      "further_questions": [
+        "Which regulator generates the most requests by topic, and where are we under-resourced?",
+        "Which SME-owners have the highest average drafting time, and what would knowledge-base coaching shave off?",
+        "Which response themes repeat most often across cycles \u2014 and could a published policy or FAQ pre-empt them?",
+        "Which requests are submitted within 48 hours of deadline, and what is the breakage pattern?",
+        "What is the cost-per-response today vs after full agent rollout, by topic and by regulator?"
+      ],
       "rows": [
         [
           "REG-0001",
@@ -19591,6 +19930,18 @@
             5
           ]
         }
+      ],
+      "narrative": [
+        "The model-validation agent flow processed 480 inventoried models this year, prioritising 142 Tier-1 and Tier-2 models due for periodic validation. The Inventory Agent reconciled the model inventory against actual production usage, flagging 18 unregistered models and 22 retired-but-still-running models.",
+        "The Evidence Gathering Agent pulled model documentation, performance monitoring artefacts, calibration sets, sensitivity tests and prior validation reports \u2014 surfacing gaps for the SME to close. The Independent Testing Agent then re-ran the model on holdout data, executed sensitivity and stability checks, and produced the validation testing pack with model-rationale cited per finding.",
+        "The Reporting & Issue Agent drafted the validation report, raised tier-appropriate findings with severity and remediation owner, and routed to the Model Risk Committee. Net effect: validation cycle fell from 60 days to 14 days, the bank cleared a 36-model SR-11/7 backlog and gained two letter grades in the most recent supervisory review of model risk management."
+      ],
+      "further_questions": [
+        "Which Tier-1 models are past their validation due date, and what is the consequence under SR 11-7?",
+        "Which models show the largest performance drift since last validation, and on which segments?",
+        "Which validators are still beating the agent on detection of subtle data-leakage and bias issues?",
+        "Which models have a Tier-mismatch \u2014 production usage suggests higher tier than registered?",
+        "What is the cost-per-validation today vs after full agent rollout, by model class?"
       ],
       "rows": [
         [
@@ -21748,6 +22099,18 @@
             5
           ]
         }
+      ],
+      "narrative": [
+        "The reputational-risk agent flow ingested 2.4 million signals this quarter from news, social, regulatory filings, employee channels and customer-complaints (CFPB, Twitter, Reddit, Glassdoor). The Signal Detection Agent classified each signal by topic, severity, and bank-business-line.",
+        "The Cross-Reference Agent then matched each signal against open customer complaints, prior incidents, employee whistleblower reports and regulatory enforcement themes \u2014 promoting 1,840 signals to monitoring and 184 to immediate executive attention. The Theme Analysis Agent grouped signals into 12 themes, with three (mortgage-servicing complaints, fee-disclosure adverse media, branch-closure backlash) showing rising momentum.",
+        "The Notification & Briefing Agent produced the daily reputational-risk briefing for the CRO and CCO, a weekly board-level pack, and proactive talking points for legal, communications and the affected business heads. Net effect: median time from emerging-signal to executive briefing fell from 6 days to 90 minutes, and the bank pre-empted two material reputational events this quarter with proactive customer outreach before press coverage broke."
+      ],
+      "further_questions": [
+        "Which complaint themes are accelerating fastest this quarter \u2014 and which business lines own them?",
+        "Which adverse-media signals best predict customer attrition in the next 30 days?",
+        "Which competitor incidents are most likely to bleed over into our reputation theme set?",
+        "Which channels (Twitter / Reddit / CFPB / press) show the strongest leading indicators by topic?",
+        "What is the time-from-signal to remediated-customer-touch by theme, and where can it be shortened?"
       ],
       "rows": [
         [
